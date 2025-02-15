@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Entry</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .form-container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 600px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        label {
+            display: block;
+            font-size: 0.9rem;
+            color: #555;
+            margin-bottom: 5px;
+        }
+        select, input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .back-link {
+            text-align: center;
+            margin-top: 10px;
+        }
+        .back-link a {
+            text-decoration: none;
+            color: #007bff;
+            font-size: 0.9rem;
+        }
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Enter Your Data</h1>
+        <!-- Form action updated to use Flask's url_for function -->
+        <form action="{{ url_for('save_data') }}" method="POST">
+            <div class="form-group">
+                <div>
+                    <label for="Brand">Brand:</label>
+                    <select id="Brand" name="Brand" required>
+                        <option value="">Select Brand</option>
+                        <option value="Jansport">Jansport</option>
+                        <option value="Under Armour">Under Armour</option>
+                        <option value="Nike">Nike</option>
+                        <option value="Adidas">Adidas</option>
+                        <option value="Puma">Puma</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="Material">Material:</label>
+                    <select id="Material" name="Material" required>
+                        <option value="">Select Material</option>
+                        <option value="Leather">Leather</option>
+                        <option value="Canvas">Canvas</option>
+                        <option value="Nylon">Nylon</option>
+                        <option value="Polyester">Polyester</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="Size">Size:</label>
+                    <select id="Size" name="Size" required>
+                        <option value="">Select Size</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Small">Small</option>
+                        <option value="Large">Large</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="Compartments">Compartments:</label>
+                    <input type="number" id="Compartments" name="Compartments" placeholder="Enter Compartments" required>
+                </div>
+                <div>
+                    <label for="Laptop_Compartment">Laptop Compartment:</label>
+                    <select id="Laptop_Compartment" name="Laptop_Compartment" required>
+                        <option value="">Select Option</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="Waterproof">Waterproof:</label>
+                    <select id="Waterproof" name="Waterproof" required>
+                        <option value="">Select Option</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="Style">Style:</label>
+                    <select id="Style" name="Style" required>
+                        <option value="">Select Style</option>
+                        <option value="Tote">Tote</option>
+                        <option value="Messenger">Messenger</option>
+                        <option value="Backpack">Backpack</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="Color">Color:</label>
+                    <select id="Color" name="Color" required>
+                        <option value="">Select Color</option>
+                        <option value="Black">Black</option>
+                        <option value="Green">Green</option>
+                        <option value="Red">Red</option>
+                        <option value="Blue">Blue</option>
+                        <option value="Gray">Gray</option>
+                        <option value="Pink">Pink</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="Weight_Capacity">Weight Capacity (kg):</label>
+                    <input type="number" id="Weight_Capacity" name="Weight_Capacity" placeholder="Enter Weight Capacity" required>
+                </div>
+            </div>
+            <button type="submit">Save Data</button>
+        </form>
+        <div class="back-link">
+            <a href="{{ url_for('home') }}">Back to Home</a>
+        </div>
+    </div>
+</body>
+</html>
